@@ -48,16 +48,16 @@ form.addEventListener("submit", (e) => {
     const workedDaysSecondMonthHalf = Number(data.get("worked_days_second_month_half"));
 
     const avansGap = workedDaysFirstMonthHalf / workingDaysFirstMonthHalf;
-    const avansPercent = avansGap.toFixed(PRICE_STRING_TAIL_SIZE) * 100;
+    const avansPercent = Math.ceil(avansGap * 100);
     const avans = salaryGross * avansSalaryPercent * avansGap;
 
     const salaryGap = workedDaysSecondMonthHalf / workingDaysSecondMonthHalf;
-    const salaryPercent = salaryGap.toFixed(PRICE_STRING_TAIL_SIZE) * 100;
+    const salaryPercent = Math.ceil(salaryGap * 100);
     const nalog = salaryGross * 0.13;
     const salary = salaryGross * (1 - avansSalaryPercent) * salaryGap - nalog;
 
     const total = salary + avans;
-    const totalPercent = (total / (salaryGross * 0.87)).toFixed(PRICE_STRING_TAIL_SIZE) * 100;
+    const totalPercent = Math.ceil(total / (salaryGross * 0.87) * 100);
 
     display.innerHTML = `
         <p>К выплате: <strong>${getPriceStr(total)}</strong> (${totalPercent} %)</p>
