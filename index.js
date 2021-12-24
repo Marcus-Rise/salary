@@ -5,7 +5,6 @@ const PRICE_STRING_DIVIDER = 3;
 const PRICE_STRING_TAIL_SIZE = 2;
 
 /**
- *
  * @param price {number}
  * @return string
  */
