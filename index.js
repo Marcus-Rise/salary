@@ -28,7 +28,7 @@ const getPriceStr = (price) => {
         buf = buf.trim();
 
         if (Number(tail) === 0) {
-            return  buf;
+            return buf;
         }
 
         return `${buf}.${tail}`;
@@ -50,11 +50,12 @@ form.addEventListener("submit", (e) => {
 
     const avansGap = workedDaysFirstMonthHalf / workingDaysFirstMonthHalf;
     const avansPercent = avansGap.toFixed(PRICE_STRING_TAIL_SIZE) * 100;
-    const avans = salaryGross * avansGap * avansSalaryPercent;
+    const avans = salaryGross * avansSalaryPercent * avansGap;
 
     const salaryGap = workedDaysSecondMonthHalf / workingDaysSecondMonthHalf;
     const salaryPercent = salaryGap.toFixed(PRICE_STRING_TAIL_SIZE) * 100;
-    const salary = salaryGross * salaryGap *  (1 - avansSalaryPercent) * NALOG;
+    const nalog = salaryGross * salaryGap * 0.13;
+    const salary = salaryGross * (1 - avansSalaryPercent) * salaryGap - nalog;
 
     const total = salary + avans;
     const totalPercent = (total / (salaryGross * NALOG)).toFixed(PRICE_STRING_TAIL_SIZE) * 100;
