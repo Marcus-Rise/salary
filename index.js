@@ -53,8 +53,7 @@ form.addEventListener("submit", (e) => {
 
     const salaryGap = workedDaysSecondMonthHalf / workingDaysSecondMonthHalf;
     const salaryPercent = Math.ceil(salaryGap * 100);
-    const nalog = salaryGross * 0.13;
-    const salary = salaryGross * (1 - avansSalaryPercent) * salaryGap - nalog;
+    const salary = (salaryGross * (1 - avansSalaryPercent) * salaryGap) * 0.87 - avans * 0.13;
 
     const total = salary + avans;
     const totalPercent = Math.ceil(total / (salaryGross * 0.87) * 100);
