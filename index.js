@@ -3,6 +3,7 @@ const display = document.getElementById("data");
 
 const PRICE_STRING_DIVIDER = 3;
 const PRICE_STRING_TAIL_SIZE = 2;
+const NALOG = 0.87;
 
 /**
  * @param price {number}
@@ -50,12 +51,13 @@ form.addEventListener("submit", (e) => {
     const avansPercent = Math.ceil(avansGap * 100);
     const avans = salaryGross * avansSalaryPercent * avansGap;
 
-    const salaryGap = workedDaysSecondMonthHalf / workingDaysSecondMonthHalf;
+    const salaryGap = (workedDaysSecondMonthHalf + workedDaysFirstMonthHalf)
+        / (workingDaysSecondMonthHalf + workingDaysSecondMonthHalf);
     const salaryPercent = Math.ceil(salaryGap * 100);
-    const salary = (salaryGross * (1 - avansSalaryPercent) * salaryGap) * 0.87 - avans * 0.13;
+    const salary = salaryGross * salaryGap * NALOG - avans;
 
     const total = salary + avans;
-    const totalPercent = Math.ceil(total / (salaryGross * 0.87) * 100);
+    const totalPercent = Math.ceil(total / (salaryGross * NALOG) * 100);
 
     display.innerHTML = `
         <p>К выплате: <strong>${getPriceStr(total)}</strong> (${totalPercent} %)</p>
