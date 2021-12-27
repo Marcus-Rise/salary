@@ -5,7 +5,7 @@ const NALOG = 0.87;
  * @param workedDaysFirstMonthHalf {number}
  * @param workingDaysFirstMonthHalf {number}
  * @param salaryGross {number}
- * @param avansSalaryPercent {number}
+ * @param avansSalaryPercent {number} 0.4 example
  * @param workedDaysSecondMonthHalf {number}
  * @param workingDaysSecondMonthHalf {number}
  * @return {{total: number, salaryPercent: number, avansPercent: number, salary: number, totalPercent: number, avans: number}}
