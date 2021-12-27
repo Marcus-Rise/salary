@@ -29,6 +29,7 @@ const calculateSalary = (
 
   const total = salary + avans;
   const totalPercent = Math.ceil(total / (salaryGross * NALOG) * 100);
+
   return {avansPercent, avans, salaryPercent, salary, total, totalPercent};
 };
 
