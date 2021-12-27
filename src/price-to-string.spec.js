@@ -20,4 +20,8 @@ describe("priceToString", () => {
    it("should not divide 12", () => {
        expect(priceToString(12)).toEqual("12")
    });
+
+    it("should divide 200 100 123", () => {
+        expect(priceToString(200100123)).toEqual("200 100 123")
+    });
 });
