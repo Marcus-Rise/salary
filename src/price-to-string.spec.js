@@ -16,4 +16,8 @@ describe("priceToString", () => {
    it("should not divide 123", () => {
        expect(priceToString(123)).toEqual("123")
    });
+
+   it("should not divide 12", () => {
+       expect(priceToString(12)).toEqual("12")
+   });
 });
