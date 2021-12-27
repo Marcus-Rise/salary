@@ -1,3 +1,4 @@
+import './styles.css';
 import {priceToString} from './price-to-string';
 import {calculateSalary} from "./calculate-salary";
 
