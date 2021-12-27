@@ -29,7 +29,11 @@ const priceToString = (price) => {
         return `${buf}.${tail}`;
     }
 
-    return price.toFixed(PRICE_STRING_TAIL_SIZE);
+    if (Number(tail) === 0) {
+        return String(price);
+    } else {
+        return `${price}.${tail}`;
+    }
 };
 
 export {priceToString}
