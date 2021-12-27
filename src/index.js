@@ -9,7 +9,7 @@ const NALOG = 0.87;
  * @param price {number}
  * @return string
  */
-const getPriceStr = (price) => {
+const priceToString = (price) => {
     const [head, tail] = price.toFixed(PRICE_STRING_TAIL_SIZE).toString().split(".");
 
     if (head.length > PRICE_STRING_DIVIDER) {
@@ -60,8 +60,8 @@ form.addEventListener("submit", (e) => {
     const totalPercent = Math.ceil(total / (salaryGross * NALOG) * 100);
 
     display.innerHTML = `
-        <p>К выплате: <strong>${getPriceStr(total)}</strong> (${totalPercent} %)</p>
-        <p>Аванс: <strong>${getPriceStr(avans)}</strong> (${avansPercent} %)</p>
-        <p>Зарплата: <strong>${getPriceStr(salary)}</strong> (${salaryPercent} %)</p>
+        <p>К выплате: <strong>${priceToString(total)}</strong> (${totalPercent} %)</p>
+        <p>Аванс: <strong>${priceToString(avans)}</strong> (${avansPercent} %)</p>
+        <p>Зарплата: <strong>${priceToString(salary)}</strong> (${salaryPercent} %)</p>
     `;
 });
