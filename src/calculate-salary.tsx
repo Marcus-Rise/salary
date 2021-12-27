@@ -2,21 +2,20 @@ const NALOG = 0.87;
 
 /**
  *
- * @param workedDaysFirstMonthHalf {number}
- * @param workingDaysFirstMonthHalf {number}
- * @param salaryGross {number}
+ * @param workedDaysFirstMonthHalf
+ * @param workingDaysFirstMonthHalf
+ * @param salaryGross
  * @param avansSalaryPercent {number} 0.4 example
- * @param workedDaysSecondMonthHalf {number}
- * @param workingDaysSecondMonthHalf {number}
- * @return {{total: number, salaryPercent: number, avansPercent: number, salary: number, totalPercent: number, avans: number}}
+ * @param workedDaysSecondMonthHalf
+ * @param workingDaysSecondMonthHalf
  */
 const calculateSalary = (
-  workedDaysFirstMonthHalf,
-  workingDaysFirstMonthHalf,
-  salaryGross,
-  avansSalaryPercent,
-  workedDaysSecondMonthHalf,
-  workingDaysSecondMonthHalf,
+  workedDaysFirstMonthHalf: number,
+  workingDaysFirstMonthHalf: number,
+  salaryGross: number,
+  avansSalaryPercent: number,
+  workedDaysSecondMonthHalf: number,
+  workingDaysSecondMonthHalf: number,
 ) => {
   const avansGap = workedDaysFirstMonthHalf / workingDaysFirstMonthHalf;
   const avansPercent = Math.ceil(avansGap * 100);

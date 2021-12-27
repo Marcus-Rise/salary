@@ -1,7 +1,16 @@
-import React, {memo} from "react";
+import React, {FC, memo} from "react";
 import {priceToString} from "../price-to-string";
 
-const Results = memo(({total, avans, salary, totalPercent, avansPercent, salaryPercent}) => {
+interface IResultProps {
+  total: number,
+  avans: number,
+  salary: number,
+  totalPercent: number,
+  avansPercent: number,
+  salaryPercent: number
+}
+
+const Results: FC<IResultProps> = memo(({total, avans, salary, totalPercent, avansPercent, salaryPercent}) => {
   return <>
     <p>К выплате: <strong>{priceToString(total)}</strong> ({totalPercent} %)</p>
     <p>Аванс: <strong>{priceToString(avans)}</strong> ({avansPercent} %)</p>

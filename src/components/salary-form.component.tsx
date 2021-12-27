@@ -1,17 +1,30 @@
-import React, {useCallback} from "react";
+import React, {FC, useCallback} from "react";
 import {InputNumber} from "./input-number.component";
 import {Controller, useForm} from "react-hook-form";
 
-const SalaryForm = ({onSumbit}) => {
-  const {control, handleSubmit} = useForm();
+interface ISalaryFormProps {
+  onSubmit: (dto: ISalaryFormDto) => void
+}
+
+interface ISalaryFormDto {
+  salaryGross: number;
+  avansPercent: number;
+  workingDaysFirstMonthHalf: number;
+  workedDaysFirstMonthHalf: number;
+  workingDaysSecondMonthHalf: number;
+  workedDaysSecondMonthHalf: number;
+}
+
+const SalaryForm: FC<ISalaryFormProps> = ({onSubmit}) => {
+  const {control, handleSubmit} = useForm<ISalaryFormDto>();
   const submit = useCallback((data) => {
-    onSumbit(data);
-  }, [onSumbit]);
+    onSubmit(data);
+  }, [onSubmit]);
 
   return <form id="form" onSubmit={handleSubmit(submit)}>
     <p>
       <Controller
-        name={"salary_gross"}
+        name={"salaryGross"}
         control={control}
         render={({field: {name, value, onChange}}) =>
           <InputNumber label={"Оклад до вычета"} name={name} value={value} placeholder={"10000"} onChange={onChange}/>
@@ -19,7 +32,7 @@ const SalaryForm = ({onSumbit}) => {
       />
       <br/>
       <Controller
-        name={"avans_percent"}
+        name={"avansPercent"}
         control={control}
         render={({field: {name, value, onChange}}) =>
           <InputNumber label={"Процент аванса %"} name={name} value={value} placeholder={"40"} onChange={onChange}/>
@@ -28,7 +41,7 @@ const SalaryForm = ({onSumbit}) => {
     </p>
     <p>
       <Controller
-        name={"working_days_first_month_half"}
+        name={"workingDaysFirstMonthHalf"}
         control={control}
         render={({field: {name, value, onChange}}) =>
           <InputNumber label={"Рабочих дней первой половины месяца"} name={name} value={value} placeholder={"11"}
@@ -37,7 +50,7 @@ const SalaryForm = ({onSumbit}) => {
       />
       <br/>
       <Controller
-        name={"worked_days_first_month_half"}
+        name={"workedDaysFirstMonthHalf"}
         control={control}
         render={({field: {name, value, onChange}}) =>
           <InputNumber label={"Отработано дней первой половины месяца"} name={name} value={value} placeholder={"11"}
@@ -47,7 +60,7 @@ const SalaryForm = ({onSumbit}) => {
     </p>
     <p>
       <Controller
-        name={"working_days_second_month_half"}
+        name={"workingDaysSecondMonthHalf"}
         control={control}
         render={({field: {name, value, onChange}}) =>
           <InputNumber label={"Рабочих дней второй половины месяца"} name={name} value={value} placeholder={"11"}
@@ -56,7 +69,7 @@ const SalaryForm = ({onSumbit}) => {
       />
       <br/>
       <Controller
-        name={"worked_days_second_month_half"}
+        name={"workedDaysSecondMonthHalf"}
         control={control}
         render={({field: {name, value, onChange}}) =>
           <InputNumber label={"Отработано дней второй половины месяца"} name={name} value={value} placeholder={"11"}
@@ -70,3 +83,4 @@ const SalaryForm = ({onSumbit}) => {
 }
 
 export {SalaryForm};
+export type {ISalaryFormDto}

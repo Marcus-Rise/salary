@@ -1,11 +1,7 @@
 const PRICE_STRING_DIVIDER = 3;
 const PRICE_STRING_TAIL_SIZE = 2;
 
-/**
- * @param price {number}
- * @return string
- */
-const priceToString = (price) => {
+const priceToString = (price: number): string => {
   const [head, tail] = price.toFixed(PRICE_STRING_TAIL_SIZE).toString().split(".");
 
   if (head.length > PRICE_STRING_DIVIDER) {

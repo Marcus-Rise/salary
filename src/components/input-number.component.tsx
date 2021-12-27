@@ -1,4 +1,4 @@
-import React, {useCallback} from "react";
+import React, {FC, useCallback} from "react";
 import styled from "styled-components";
 
 const Input = styled.input`
@@ -9,9 +9,17 @@ const Input = styled.input`
   box-sizing: border-box;
 `;
 
-const InputNumber = ({label, name, placeholder, onChange, value}) => {
+interface IInputNumberProps {
+  label: string,
+  name: string
+  placeholder: string;
+  onChange: (value: number) => void;
+  value: number;
+}
+
+const InputNumber: FC<IInputNumberProps> = ({label, name, placeholder, onChange, value}) => {
   const change = useCallback((e) => {
-    onChange(e.target.value);
+    onChange(Number(e.target.value));
   }, [onChange])
 
   return <>
