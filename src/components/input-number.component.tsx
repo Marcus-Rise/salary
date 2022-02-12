@@ -36,6 +36,8 @@ interface IInputNumberProps {
   onChange: (value?: number) => void;
   value?: number;
   error?: string;
+  min?: number;
+  required?: boolean;
 }
 
 const InputNumber: FC<IInputNumberProps> = ({
@@ -45,6 +47,8 @@ const InputNumber: FC<IInputNumberProps> = ({
   onChange,
   value,
   error,
+  min,
+  required,
 }) => {
   const change = useCallback(
     (e) => {
@@ -69,6 +73,8 @@ const InputNumber: FC<IInputNumberProps> = ({
         placeholder={placeholder}
         value={value ?? ""}
         onChange={change}
+        min={min}
+        required={required}
       />
       {!!error && <Error>{error}</Error>}
     </Wrapper>
