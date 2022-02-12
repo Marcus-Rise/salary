@@ -34,7 +34,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",
     }),
-    new ESLintPlugin()
+    new ESLintPlugin({
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
+    })
   ],
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
