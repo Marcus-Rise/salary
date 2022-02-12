@@ -4,15 +4,24 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+`;
+
+const Label = styled.label`
+  margin-bottom: 0.25rem;
+  font-weight: bold;
 `;
 
 const Input = styled.input`
   background: white;
-  border: none;
-  text-align: center;
+  border: 0.1rem rgba(128, 128, 128, 0.51) solid;
   padding: 0.2em;
   box-sizing: border-box;
+
+  &:focus {
+    border-color: black;
+    outline: none;
+  }
 `;
 
 interface IInputNumberProps {
@@ -33,7 +42,7 @@ const InputNumber: FC<IInputNumberProps> = ({ label, name, placeholder, onChange
 
   return (
     <Wrapper>
-      <label htmlFor={name}>{label}</label>{" "}
+      <Label htmlFor={name}>{label}</Label>{" "}
       <Input
         type="number"
         id={name}
