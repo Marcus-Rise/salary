@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import React, { memo } from "react";
 import { priceToString } from "../price-to-string";
+import { Card } from "./card.component";
 
 interface IResultProps {
   total: number;
@@ -15,7 +16,7 @@ interface IResultProps {
 const Results: FC<IResultProps> = memo(
   ({ total, avans, salary, totalPercent, avansPercent, salaryPercent }) => {
     return (
-      <>
+      <Card>
         <p>
           К выплате: <strong>{priceToString(total)}</strong> ({totalPercent} %)
         </p>
@@ -25,7 +26,7 @@ const Results: FC<IResultProps> = memo(
         <p>
           Зарплата: <strong>{priceToString(salary)}</strong> ({salaryPercent} %)
         </p>
-      </>
+      </Card>
     );
   },
 );

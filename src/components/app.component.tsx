@@ -5,6 +5,12 @@ import { SalaryForm } from "./salary-form.component";
 import { Results } from "./results.component";
 import { Card } from "./card.component";
 import { GlobalStyles } from "../styles";
+import { Container } from "./container.component";
+import styled from "styled-components";
+
+const H1 = styled.h1`
+  text-align: center;
+`;
 
 const App = () => {
   const [results, setResults] = useState<{
@@ -45,22 +51,27 @@ const App = () => {
     <>
       <GlobalStyles />
       <header>
-        <h1>Калькулятор зарплаты</h1>
+        <H1>Калькулятор зарплаты</H1>
       </header>
       <main>
-        <Card>
-          <SalaryForm onSubmit={calculate} />
-        </Card>
+        <Container>
+          <Card>
+            <SalaryForm onSubmit={calculate} />
+          </Card>
+        </Container>
+        <br />
 
         {!!results && (
-          <Results
-            salary={results.salary}
-            avans={results.avans}
-            total={results.total}
-            avansPercent={results.avansPercent}
-            salaryPercent={results.salaryPercent}
-            totalPercent={results.totalPercent}
-          />
+          <Container>
+            <Results
+              salary={results.salary}
+              avans={results.avans}
+              total={results.total}
+              avansPercent={results.avansPercent}
+              salaryPercent={results.salaryPercent}
+              totalPercent={results.totalPercent}
+            />
+          </Container>
         )}
       </main>
 
