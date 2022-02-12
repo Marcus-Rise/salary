@@ -9,7 +9,6 @@ const Wrapper = styled.div`
 `;
 
 const Label = styled.label`
-  margin-bottom: 0.25rem;
   font-weight: bold;
 `;
 
@@ -18,6 +17,7 @@ const Input = styled.input`
   border: 0.1rem ${Colors.textSecondary} solid;
   padding: 0.2em;
   box-sizing: border-box;
+  margin: 0.25rem 0;
 
   &:focus {
     border-color: ${Colors.textPrimary};
@@ -25,18 +25,36 @@ const Input = styled.input`
   }
 `;
 
+const Error = styled.small`
+  color: ${Colors.textDanger};
+`;
+
 interface IInputNumberProps {
   label: string;
   name: string;
   placeholder: string;
-  onChange: (value: number) => void;
-  value: number;
+  onChange: (value?: number) => void;
+  value?: number;
+  error?: string;
 }
 
-const InputNumber: FC<IInputNumberProps> = ({ label, name, placeholder, onChange, value }) => {
+const InputNumber: FC<IInputNumberProps> = ({
+  label,
+  name,
+  placeholder,
+  onChange,
+  value,
+  error,
+}) => {
   const change = useCallback(
     (e) => {
-      onChange(Number(e.target.value));
+      const inputValue = e.target.value;
+
+      if (inputValue === "") {
+        onChange(undefined);
+      } else {
+        onChange(Number(inputValue));
+      }
     },
     [onChange],
   );
@@ -49,9 +67,10 @@ const InputNumber: FC<IInputNumberProps> = ({ label, name, placeholder, onChange
         id={name}
         name={name}
         placeholder={placeholder}
-        value={value}
+        value={value ?? ""}
         onChange={change}
       />
+      {!!error && <Error>{error}</Error>}
     </Wrapper>
   );
 };
