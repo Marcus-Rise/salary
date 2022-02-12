@@ -6,7 +6,7 @@ const priceToString = (price: number): string => {
 
   if (head.length > PRICE_STRING_DIVIDER) {
     let buf = "";
-    let i = head.length - PRICE_STRING_DIVIDER
+    let i = head.length - PRICE_STRING_DIVIDER;
 
     for (; i >= 0; i = i - PRICE_STRING_DIVIDER) {
       buf = head.substr(i, PRICE_STRING_DIVIDER) + " " + buf;
@@ -32,4 +32,4 @@ const priceToString = (price: number): string => {
   }
 };
 
-export {priceToString}
+export {priceToString};

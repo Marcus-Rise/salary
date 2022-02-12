@@ -1,4 +1,5 @@
-import React, {FC, useCallback} from "react";
+import type {FC} from "react";
+import React, {useCallback} from "react";
 import {InputNumber} from "./input-number.component";
 import {Controller, useForm} from "react-hook-form";
 import styled from "styled-components";
@@ -48,7 +49,7 @@ const SalaryForm: FC<ISalaryFormProps> = ({onSubmit}) => {
       control={control}
       render={({field: {name, value, onChange}}) =>
         <InputNumber label={"Рабочих дней первой половины месяца"} name={name} value={value} placeholder={"11"}
-                     onChange={onChange}/>
+          onChange={onChange}/>
       }
     />
     <Controller
@@ -56,7 +57,7 @@ const SalaryForm: FC<ISalaryFormProps> = ({onSubmit}) => {
       control={control}
       render={({field: {name, value, onChange}}) =>
         <InputNumber label={"Отработано дней первой половины месяца"} name={name} value={value} placeholder={"11"}
-                     onChange={onChange}/>
+          onChange={onChange}/>
       }
     />
     <Controller
@@ -64,7 +65,7 @@ const SalaryForm: FC<ISalaryFormProps> = ({onSubmit}) => {
       control={control}
       render={({field: {name, value, onChange}}) =>
         <InputNumber label={"Рабочих дней второй половины месяца"} name={name} value={value} placeholder={"11"}
-                     onChange={onChange}/>
+          onChange={onChange}/>
       }
     />
     <Controller
@@ -72,12 +73,12 @@ const SalaryForm: FC<ISalaryFormProps> = ({onSubmit}) => {
       control={control}
       render={({field: {name, value, onChange}}) =>
         <InputNumber label={"Отработано дней второй половины месяца"} name={name} value={value} placeholder={"11"}
-                     onChange={onChange}/>
+          onChange={onChange}/>
       }
     />
     <button type="submit">рассчитать</button>
-  </Form>
-}
+  </Form>;
+};
 
 export {SalaryForm};
-export type {ISalaryFormDto}
+export type {ISalaryFormDto};

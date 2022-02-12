@@ -1,8 +1,9 @@
 import React, {useCallback, useState} from "react";
 import {calculateSalary} from "../calculate-salary";
-import {ISalaryFormDto, SalaryForm} from "./salary-form.component";
+import type {ISalaryFormDto} from "./salary-form.component";
+import {SalaryForm} from "./salary-form.component";
 import {Results} from "./results.component";
-import { Card } from "./card.component";
+import {Card} from "./card.component";
 import {GlobalStyles} from "../styles";
 
 const App = () => {
@@ -16,13 +17,13 @@ const App = () => {
   }>();
 
   const calculate = useCallback(({
-                                   salaryGross,
-                                   workedDaysFirstMonthHalf,
-                                   workingDaysFirstMonthHalf,
-                                   workingDaysSecondMonthHalf,
-                                   workedDaysSecondMonthHalf,
-                                   avansPercent
-                                 }: ISalaryFormDto) => {
+    salaryGross,
+    workedDaysFirstMonthHalf,
+    workingDaysFirstMonthHalf,
+    workingDaysSecondMonthHalf,
+    workedDaysSecondMonthHalf,
+    avansPercent
+  }: ISalaryFormDto) => {
     const avansSalaryPercent = avansPercent / 100;
 
     setResults(() => {
@@ -33,12 +34,12 @@ const App = () => {
         avansSalaryPercent,
         workedDaysSecondMonthHalf,
         workingDaysSecondMonthHalf,
-      )
-    })
+      );
+    });
   }, []);
 
   return <>
-    <GlobalStyles />
+    <GlobalStyles/>
     <header>
       <h1>Калькулятор зарплаты</h1>
     </header>
@@ -49,7 +50,7 @@ const App = () => {
 
       {!!results &&
         <Results salary={results.salary} avans={results.avans} total={results.total} avansPercent={results.avansPercent}
-                 salaryPercent={results.salaryPercent} totalPercent={results.totalPercent}/>}
+          salaryPercent={results.salaryPercent} totalPercent={results.totalPercent}/>}
     </main>
 
     <footer>Исходный код на <a href="https://github.com/Marcus-Rise/salary">Github</a></footer>
