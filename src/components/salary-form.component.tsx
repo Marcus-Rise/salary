@@ -8,6 +8,16 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  & > * {
+    &:not(:first-child) {
+      margin-top: 0.25rem;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 0.25rem;
+    }
+  }
 `;
 
 interface ISalaryFormProps {
@@ -39,10 +49,10 @@ const SalaryForm: FC<ISalaryFormProps> = ({ onSubmit }) => {
         control={control}
         render={({ field: { name, value, onChange } }) => (
           <InputNumber
-            label={"Оклад до вычета"}
+            label={"Оклад"}
             name={name}
             value={value}
-            placeholder={"10000"}
+            placeholder={"Оклад до вычета"}
             onChange={onChange}
           />
         )}
@@ -52,10 +62,10 @@ const SalaryForm: FC<ISalaryFormProps> = ({ onSubmit }) => {
         control={control}
         render={({ field: { name, value, onChange } }) => (
           <InputNumber
-            label={"Процент аванса %"}
+            label={"Аванс %"}
             name={name}
             value={value}
-            placeholder={"40"}
+            placeholder={"Процент аванса %"}
             onChange={onChange}
           />
         )}
@@ -65,10 +75,10 @@ const SalaryForm: FC<ISalaryFormProps> = ({ onSubmit }) => {
         control={control}
         render={({ field: { name, value, onChange } }) => (
           <InputNumber
-            label={"Рабочих дней первой половины месяца"}
+            label={"Рабочих дней в первой половине месяца"}
             name={name}
             value={value}
-            placeholder={"11"}
+            placeholder={"Количество рабочих дней"}
             onChange={onChange}
           />
         )}
@@ -78,10 +88,10 @@ const SalaryForm: FC<ISalaryFormProps> = ({ onSubmit }) => {
         control={control}
         render={({ field: { name, value, onChange } }) => (
           <InputNumber
-            label={"Отработано дней первой половины месяца"}
+            label={"Отработано рабочих дней в первой половине месяца"}
             name={name}
             value={value}
-            placeholder={"11"}
+            placeholder={"Количество рабочих дней"}
             onChange={onChange}
           />
         )}
@@ -91,10 +101,10 @@ const SalaryForm: FC<ISalaryFormProps> = ({ onSubmit }) => {
         control={control}
         render={({ field: { name, value, onChange } }) => (
           <InputNumber
-            label={"Рабочих дней второй половины месяца"}
+            label={"Рабочих дней во второй половине месяца"}
             name={name}
             value={value}
-            placeholder={"11"}
+            placeholder={"Количество рабочих дней"}
             onChange={onChange}
           />
         )}
@@ -104,10 +114,10 @@ const SalaryForm: FC<ISalaryFormProps> = ({ onSubmit }) => {
         control={control}
         render={({ field: { name, value, onChange } }) => (
           <InputNumber
-            label={"Отработано дней второй половины месяца"}
+            label={"Отработано рабочих дней во второй половине месяца"}
             name={name}
             value={value}
-            placeholder={"11"}
+            placeholder={"Количество рабочих дней"}
             onChange={onChange}
           />
         )}

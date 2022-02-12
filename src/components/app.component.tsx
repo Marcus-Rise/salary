@@ -4,7 +4,7 @@ import type { ISalaryFormDto } from "./salary-form.component";
 import { SalaryForm } from "./salary-form.component";
 import { Results } from "./results.component";
 import { Card } from "./card.component";
-import { GlobalStyles } from "../styles";
+import { GlobalStyles } from "../styles/global-styles";
 import { Container } from "./container.component";
 import styled from "styled-components";
 
