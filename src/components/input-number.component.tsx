@@ -1,6 +1,11 @@
 import React, {FC, useCallback} from "react";
 import styled from "styled-components";
 
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 const Input = styled.input`
   background: white;
   border: none;
@@ -22,11 +27,11 @@ const InputNumber: FC<IInputNumberProps> = ({label, name, placeholder, onChange,
     onChange(Number(e.target.value));
   }, [onChange])
 
-  return <>
+  return <Wrapper>
     <label htmlFor={name}>{label}</label>{" "}
     <Input type="number" id={name} name={name} placeholder={placeholder} value={value}
            onChange={change}/>
-  </>
+  </Wrapper>
 }
 
 export {InputNumber};

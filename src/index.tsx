@@ -1,4 +1,3 @@
-import './styles.css';
 import React from "react";
 import {App} from "./components/app.component";
 import ReactDOM from "react-dom";

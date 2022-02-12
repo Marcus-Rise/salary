@@ -2,6 +2,8 @@ import React, {useCallback, useState} from "react";
 import {calculateSalary} from "../calculate-salary";
 import {ISalaryFormDto, SalaryForm} from "./salary-form.component";
 import {Results} from "./results.component";
+import { Card } from "./card.component";
+import {GlobalStyles} from "../styles";
 
 const App = () => {
   const [results, setResults] = useState<{
@@ -36,11 +38,14 @@ const App = () => {
   }, []);
 
   return <>
+    <GlobalStyles />
     <header>
       <h1>Калькулятор зарплаты</h1>
     </header>
     <main>
-      <SalaryForm onSubmit={calculate}/>
+      <Card>
+        <SalaryForm onSubmit={calculate}/>
+      </Card>
 
       {!!results &&
         <Results salary={results.salary} avans={results.avans} total={results.total} avansPercent={results.avansPercent}
