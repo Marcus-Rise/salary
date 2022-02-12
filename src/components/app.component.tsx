@@ -59,6 +59,7 @@ const App = () => {
             <SalaryForm onSubmit={calculate} />
           </Card>
         </Container>
+
         <br />
 
         {!!results && (
