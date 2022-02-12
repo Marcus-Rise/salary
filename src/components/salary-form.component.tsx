@@ -50,7 +50,7 @@ const SalaryForm: FC<ISalaryFormProps> = ({ onSubmit }) => {
         control={control}
         render={({ field: { name, value, onChange }, fieldState }) => (
           <InputNumber
-            label={"Оклад"}
+            label={"Оклад ₽"}
             name={name}
             value={value}
             placeholder={"Оклад до вычета"}

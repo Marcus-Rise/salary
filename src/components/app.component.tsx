@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import { calculateSalary } from "../calculate-salary";
 import type { ISalaryFormDto } from "./salary-form.component";
 import { SalaryForm } from "./salary-form.component";
-import { Results } from "./results.component";
+import { Results } from "./results";
 import { Card } from "./card.component";
 import { GlobalStyles } from "../styles/global-styles";
 import { Container } from "./container.component";
@@ -65,14 +65,16 @@ const App = () => {
 
         {!!results && (
           <Container>
-            <Results
-              salary={results.salary}
-              avans={results.avans}
-              total={results.total}
-              avansPercent={results.avansPercent}
-              salaryPercent={results.salaryPercent}
-              totalPercent={results.totalPercent}
-            />
+            <Card>
+              <Results
+                salary={results.salary}
+                avans={results.avans}
+                total={results.total}
+                avansPercent={results.avansPercent}
+                salaryPercent={results.salaryPercent}
+                totalPercent={results.totalPercent}
+              />
+            </Card>
           </Container>
         )}
       </main>
