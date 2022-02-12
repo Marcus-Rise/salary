@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import React, { useCallback } from "react";
 import styled from "styled-components";
+import { Colors } from "../styles/colors";
 
 const Wrapper = styled.div`
   display: flex;
@@ -13,13 +14,13 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-  background: white;
-  border: 0.1rem rgba(128, 128, 128, 0.51) solid;
+  background: ${Colors.backgroundSecondary};
+  border: 0.1rem ${Colors.textSecondary} solid;
   padding: 0.2em;
   box-sizing: border-box;
 
   &:focus {
-    border-color: black;
+    border-color: ${Colors.textPrimary};
     outline: none;
   }
 `;
