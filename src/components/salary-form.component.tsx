@@ -3,6 +3,7 @@ import React, { useCallback } from "react";
 import { InputNumber } from "./input-number.component";
 import { Controller, useForm } from "react-hook-form";
 import styled from "styled-components";
+import { Button } from "./button.component";
 
 const Form = styled.form`
   display: flex;
@@ -122,7 +123,7 @@ const SalaryForm: FC<ISalaryFormProps> = ({ onSubmit }) => {
           />
         )}
       />
-      <button type="submit">рассчитать</button>
+      <Button type="submit">рассчитать</Button>
     </Form>
   );
 };
