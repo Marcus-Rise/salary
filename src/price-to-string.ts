@@ -32,4 +32,4 @@ const priceToString = (price: number): string => {
   }
 };
 
-export {priceToString};
+export { priceToString };

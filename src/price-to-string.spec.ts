@@ -1,4 +1,4 @@
-import {priceToString} from "./price-to-string";
+import { priceToString } from "./price-to-string";
 
 describe("priceToString", () => {
   it("should divide 100 123", () => {

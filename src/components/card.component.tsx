@@ -8,6 +8,4 @@ const Card = styled.div`
   margin: 0 auto;
 `;
 
-export {Card};
-
-
+export { Card };

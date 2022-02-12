@@ -21,15 +21,16 @@ const calculateSalary = (
   const avansPercent = Math.ceil(avansGap * 100);
   const avans = salaryGross * avansSalaryPercent * avansGap;
 
-  const salaryGap = (workedDaysSecondMonthHalf + workedDaysFirstMonthHalf)
-    / (workingDaysSecondMonthHalf + workingDaysFirstMonthHalf);
+  const salaryGap =
+    (workedDaysSecondMonthHalf + workedDaysFirstMonthHalf) /
+    (workingDaysSecondMonthHalf + workingDaysFirstMonthHalf);
   const salaryPercent = Math.ceil(salaryGap * 100);
   const salary = salaryGross * salaryGap * NALOG - avans;
 
   const total = salary + avans;
-  const totalPercent = Math.ceil(total / (salaryGross * NALOG) * 100);
+  const totalPercent = Math.ceil((total / (salaryGross * NALOG)) * 100);
 
-  return {avansPercent, avans, salaryPercent, salary, total, totalPercent};
+  return { avansPercent, avans, salaryPercent, salary, total, totalPercent };
 };
 
-export {calculateSalary};
+export { calculateSalary };

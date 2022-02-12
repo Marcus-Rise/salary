@@ -1,5 +1,5 @@
-import type {FC} from "react";
-import React, {useCallback} from "react";
+import type { FC } from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -16,23 +16,34 @@ const Input = styled.input`
 `;
 
 interface IInputNumberProps {
-  label: string,
-  name: string
+  label: string;
+  name: string;
   placeholder: string;
   onChange: (value: number) => void;
   value: number;
 }
 
-const InputNumber: FC<IInputNumberProps> = ({label, name, placeholder, onChange, value}) => {
-  const change = useCallback((e) => {
-    onChange(Number(e.target.value));
-  }, [onChange]);
+const InputNumber: FC<IInputNumberProps> = ({ label, name, placeholder, onChange, value }) => {
+  const change = useCallback(
+    (e) => {
+      onChange(Number(e.target.value));
+    },
+    [onChange],
+  );
 
-  return <Wrapper>
-    <label htmlFor={name}>{label}</label>{" "}
-    <Input type="number" id={name} name={name} placeholder={placeholder} value={value}
-      onChange={change}/>
-  </Wrapper>;
+  return (
+    <Wrapper>
+      <label htmlFor={name}>{label}</label>{" "}
+      <Input
+        type="number"
+        id={name}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={change}
+      />
+    </Wrapper>
+  );
 };
 
-export {InputNumber};
+export { InputNumber };
